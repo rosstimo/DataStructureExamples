@@ -1,7 +1,10 @@
 ﻿Module DataStructures
 
     Sub Main()
-        ArrayExample()
+        'ArrayExample()
+        TestRandom()
+
+
         Console.ReadLine()
 
     End Sub
@@ -30,5 +33,34 @@
 
         Console.ReadLine()
     End Sub
+
+    Sub TestRandom()
+        Dim biggestNumber As Integer = 10
+        Dim RandomNumbers(10) As Integer
+
+        'get random numbers
+        For i = 0 To 100000
+            RandomNumbers(RandomNumberInRange(6)) += 1
+        Next
+        'write header
+        For i = LBound(RandomNumbers) To UBound(RandomNumbers)
+            Console.Write(CStr(i).PadLeft(6) & " |")
+        Next
+        Console.WriteLine()
+        Console.WriteLine(StrDup(70, "-"))
+        'write values
+        For i = LBound(RandomNumbers) To UBound(RandomNumbers)
+            Console.Write(CStr(RandomNumbers(i)).PadLeft(6) & " |")
+        Next
+
+    End Sub
+
+    Function RandomNumberInRange(max As Integer) As Integer
+        Dim randomNumber As Integer
+
+        randomNumber = CInt(System.Math.Floor(Rnd() * (max + 1)))
+
+        Return randomNumber
+    End Function
 
 End Module
