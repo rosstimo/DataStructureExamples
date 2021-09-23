@@ -35,22 +35,25 @@
     End Sub
 
     Sub TestRandom()
-        Dim biggestNumber As Integer = 10
-        Dim RandomNumbers(10) As Integer
+        Dim biggestNumber As Integer = 5
+        Dim RandomNumbers(biggestNumber) As Integer
+        Dim pad As Integer = 6
+        Dim headerLength As Integer = (biggestNumber + 1) * (pad + 2)
+
 
         'get random numbers
         For i = 0 To 100000
-            RandomNumbers(RandomNumberInRange(6)) += 1
+            RandomNumbers(RandomNumberInRange(biggestNumber)) += 1
         Next
         'write header
         For i = LBound(RandomNumbers) To UBound(RandomNumbers)
-            Console.Write(CStr(i).PadLeft(6) & " |")
+            Console.Write(CStr(i).PadLeft(pad) & " |")
         Next
         Console.WriteLine()
-        Console.WriteLine(StrDup(70, "-"))
+        Console.WriteLine(StrDup(headerLength, "-"))
         'write values
         For i = LBound(RandomNumbers) To UBound(RandomNumbers)
-            Console.Write(CStr(RandomNumbers(i)).PadLeft(6) & " |")
+            Console.Write(CStr(RandomNumbers(i)).PadLeft(pad) & " |")
         Next
 
     End Sub
