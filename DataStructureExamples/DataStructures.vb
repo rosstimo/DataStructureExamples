@@ -43,7 +43,7 @@
 
         'get random numbers
         For i = 0 To 100000
-            RandomNumbers(RandomNumberInRange(biggestNumber)) += 1
+            RandomNumbers(RandomNumberZeroTo(biggestNumber)) += 1
         Next
         'write header
         For i = LBound(RandomNumbers) To UBound(RandomNumbers)
@@ -58,11 +58,9 @@
 
     End Sub
 
-    Function RandomNumberInRange(max As Integer) As Integer
+    Function RandomNumberZeroTo(max As Integer) As Integer
         Dim randomNumber As Integer
-
         randomNumber = CInt(System.Math.Floor(Rnd() * (max + 1)))
-
         Return randomNumber
     End Function
 
